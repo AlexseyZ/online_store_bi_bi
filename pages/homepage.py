@@ -1,13 +1,21 @@
 import allure
 from playwright.sync_api import expect, Page
+from pages.basepage import BasePage
 
 
-class HomePage:
+class HomePage(BasePage):
+    url = "https://bi-bi.ru/"
 
-    def __init__(self, page):
-        self.page = page
 
-    def open_home_page(self):
-        self.page.goto("https://bi-bi.ru/")
-        expect(self.page.locator("//a[@class='header-top__logo']")).to_be_visible()
+    def click_button_select_parts_car(self):
+        self.page.locator("//span[@class='d-sm-none d-md-inline-block']").click()
+
+    def click_button_pickup_goods(self):
+        self.page.locator("//span[@class='js-mode-name']").click()
+
+
+
+
+
+
 
